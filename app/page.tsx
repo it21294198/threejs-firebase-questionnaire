@@ -1,30 +1,25 @@
 "use client"
-// import { collection, addDoc } from "firebase/firestore"; 
-import { firestore } from '../app/config/firebase'
-import { doc, setDoc } from "firebase/firestore"; 
+import Form from '../app/Form'
+import Background from '../app/Background'
+import Footer from '../app/Footer'
+import Header from './Header'
 
 export default function Home() {
 
-  const clicked = async () => {
-
-    // const docRef = await addDoc(collection(firestore, "cities"), {
-    //   name: "Tokyo",
-    //   country: "Japan"
-    // });
-    // console.log("Document written with ID: ", docRef.id);
-
-    await setDoc(doc(firestore, "cities", "dfA"), {
-      name: "Los fsAngeles",
-      state: "CAff",
-      country: "USA"
-    })
-    console.log('doc is added');
-
-  }
-
   return (
-    <>
-    <button onClick={clicked} className="btn btn-primary">Click</button>
-    </>
+    <div className=''>
+      <div className='absolute w-full top-0'>
+        <Header/>
+      </div>
+      <div className=''>
+        <Background/>
+      </div>
+      <div className=''>
+        <Form/>
+      </div>
+      <div className='w-full bottom-0'>
+        <Footer/>
+      </div>
+    </div>
   )
 }
