@@ -1,30 +1,31 @@
 "use client"
-import Form from '../app/Form'
-import Background from '../app/Background'
-import Footer from '../app/Footer'
-import Header from './Header'
-import Load from './Loading/Load'
-import { useState } from 'react'
+import Form from '../app/Form';
+import Footer from '../app/Footer';
+import Header from './Header';
+import Load from './Loading/Load';
+import { useState, lazy, Suspense } from 'react';
+
+const LazyBackground = lazy(() => import('../app/Background'));
 
 export default function Home() {
+  const [isLoading, setIsLoading] = useState(true);
 
-  const [Loading, setLoading] = useState<Boolean>(false);
-  
-  if (Loading) {
-    return (
-      <div className="loader-container">
-        <Load />
-      </div>
-    );
-  }
-  
   return (
-    <div className=''>
-      <Header />
-      <Background />
-      <Form />
-      <Footer />
+    <div>
+      <Suspense fallback={<Load />}>
+        {isLoading ? (
+          <div className="loader-container">
+            <Load />
+          </div>
+        ) : (
+          <div className="">
+            <Header />
+            <LazyBackground />
+            <Form />
+            <Footer />
+          </div>
+        )}
+      </Suspense>
     </div>
   );
-  
 }
