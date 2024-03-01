@@ -72,7 +72,7 @@ const Background = () => {
   }, []);
 
   return (
-    <div>
+    <div className="main">
       <canvas id="webgl"></canvas>
     </div>
   );

@@ -3,23 +3,28 @@ import Form from '../app/Form'
 import Background from '../app/Background'
 import Footer from '../app/Footer'
 import Header from './Header'
+import Load from './Loading/Load'
+import { useState } from 'react'
 
 export default function Home() {
 
+  const [Loading, setLoading] = useState<Boolean>(false);
+  
+  if (Loading) {
+    return (
+      <div className="loader-container">
+        <Load />
+      </div>
+    );
+  }
+  
   return (
     <div className=''>
-      <div className='absolute w-full top-0'>
-        <Header/>
-      </div>
-      <div className=''>
-        <Background/>
-      </div>
-      <div className=''>
-        <Form/>
-      </div>
-      <div className='w-full bottom-0'>
-        <Footer/>
-      </div>
+      <Header />
+      <Background />
+      <Form />
+      <Footer />
     </div>
-  )
+  );
+  
 }
