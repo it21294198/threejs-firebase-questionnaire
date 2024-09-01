@@ -38,32 +38,32 @@ const Background = () => {
       // camera.position.set(50,50,13);
     });
 
-    // const loader2 = new GLTFLoader();
-    // loader2.load('scene.gltf', function (gltf) {
-    //   scene.add(gltf.scene);
-    //   camera.position.set(20,20,23);
-    // });
+    const loader2 = new GLTFLoader();
+    loader2.load('scene.gltf', function (gltf) {
+      scene.add(gltf.scene);
+      camera.position.set(20,20,23);
+    });
 
-    // const light = new THREE.PointLight(0x000000, 20, 100);
-    // light.position.set(50, 30, 50);
-    // scene.add(light);
+    const light = new THREE.PointLight(0x000000, 20, 100);
+    light.position.set(50, 30, 50);
+    scene.add(light);
 
-    // const ambientLight = new THREE.AmbientLight(0xffffff, 0.2);
-    // scene.add(ambientLight);
+    const ambientLight = new THREE.AmbientLight(0xffffff, 0.2);
+    scene.add(ambientLight);
 
-    // controls.update();
-    // controls.autoRotate = true
+    controls.update();
+    controls.autoRotate = true
     controls.enableRotate = false;
     controls.enableZoom = false;
 
     const animate = () => {
       requestAnimationFrame(animate);
 
-      // galaxyPosition.x = galaxyPosition.x + 0.01
-      // galaxyPosition.y = galaxyPosition.y + 0.01
-      // galaxyPosition.z = galaxyPosition.z - 0.01
-      // camera.position.set(galaxyPosition.x,galaxyPosition.y,galaxyPosition.z);
-      // camera.rotation.set(galaxyPosition.x,galaxyPosition.y,galaxyPosition.z);
+      galaxyPosition.x = galaxyPosition.x + 0.01
+      galaxyPosition.y = galaxyPosition.y + 0.01
+      galaxyPosition.z = galaxyPosition.z - 0.01
+      camera.position.set(galaxyPosition.x,galaxyPosition.y,galaxyPosition.z);
+      camera.rotation.set(galaxyPosition.x,galaxyPosition.y,galaxyPosition.z);
       controls.update();
       renderer.render(scene, camera);
     };

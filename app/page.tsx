@@ -8,7 +8,7 @@ import { useState, lazy, Suspense } from 'react';
 const LazyBackground = lazy(() => import('../app/Background'));
 
 export default function Home() {
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(false);
 
   return (
     <div>
